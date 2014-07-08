@@ -28,7 +28,7 @@ function render(resumeObject) {
                     });
 	}
 
-	var theme = fs.readFileSync(__dirname + 'resume.template', 'utf8');
+	var theme = fs.readFileSync(__dirname + '/resume.template', 'utf8');
 	var resumeHTML = Mustache.render(theme, resumeObject);
 	
 

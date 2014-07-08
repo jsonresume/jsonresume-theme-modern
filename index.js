@@ -34,7 +34,7 @@ function render(resumeObject) {
 	var resumeHTML = Mustache.render(theme, resumeObject);
 	
 
-	return JSON.stringify(resumeHTML);
+	return resumeHTML;
 };
 module.exports = {
 	render: render

@@ -1,6 +1,6 @@
 
 function generate (resumeObject) {
-	return 'Template';
+	return 'TemplateBlue';
 };
 
 module.exports = {

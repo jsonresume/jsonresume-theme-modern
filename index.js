@@ -1,8 +1,8 @@
 
-function export (resumeObject) {
+function generate (resumeObject) {
 	return 'Template';
 };
 
 module.exports = {
-	export: export
+	generate: generate
 }

@@ -1,8 +1,8 @@
 
-function generate (resumeObject) {
-	return 'TemplateBlue';
+function render(resumeObject) {
+	return 'Argonaut!';
 };
 
 module.exports = {
-	generate: generate
+	render: render
 }

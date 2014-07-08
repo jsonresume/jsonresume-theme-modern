@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-modern",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "jsonresume-theme-modern =======================",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jsonresume/jsonresume-theme-modern/issues"
   },
-  "homepage": "https://github.com/jsonresume/jsonresume-theme-modern"
+  "homepage": "https://github.com/jsonresume/jsonresume-theme-modern",
+  "dependencies": {
+    "tarball-extract": "0.0.3"
+  }
 }

@@ -1,7 +1,6 @@
 var fs = require('fs');
 var gravatar = require('gravatar');
-var lodash = require('lodash');
-
+var _ = require('lodash');
 function render(resumeObject) {
 
 

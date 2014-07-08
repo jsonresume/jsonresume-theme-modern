@@ -1,6 +1,8 @@
 var fs = require('fs');
 var gravatar = require('gravatar');
-var _ = require('lodash');
+var _ = require('')
+var Mustache = require('mustache');
+
 function render(resumeObject) {
 
 

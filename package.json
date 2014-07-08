@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-modern",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "jsonresume-theme-modern =======================",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "gravatar": "^1.0.6",
     "lodash": "^2.4.1",
+    "mustache": "^0.8.2",
     "tarball-extract": "0.0.3"
   }
 }

@@ -1,6 +1,6 @@
 
 function render(resumeObject) {
-	return 'Argonaut!';
+	return JSON.stringify(resumeObject);
 };
 
 module.exports = {

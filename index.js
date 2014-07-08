@@ -1,6 +1,6 @@
 var fs = require('fs');
 var gravatar = require('gravatar');
-var _ = require('')
+var _ = require('lodash')
 var Mustache = require('mustache');
 
 function render(resumeObject) {
@@ -36,7 +36,6 @@ function render(resumeObject) {
 
 	return JSON.stringify(resumeHTML);
 };
-
 module.exports = {
 	render: render
 }

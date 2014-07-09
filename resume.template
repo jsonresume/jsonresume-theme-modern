@@ -93,7 +93,7 @@
           <div class="skills">
             {{#education}}
             <h3>{{institution}}</h3>
-            <h4>{{area}}, {{studyType}}</h4>
+            <h4>{{educationDetail}}</h4>
             <p>{{startDateYear}} - {{endDateYear}}</p>
             <p>{{summary}}</p>
             <ul>

@@ -15,6 +15,11 @@ function render(resumeObject) {
 		}
 	});
 	_.each(resumeObject.education, function(e){
+    if( !e.area || !e.studyType ){
+      e.educationDetail = (e.area == null ? '' : e.area) + (e.studyType == null ? '' : e.studyType);
+    }  else {
+      e.educationDetail = e.area + ", "+ e.studyType;
+    }
 		e.startDateYear = e.startDate.substr(0,4);
 		if(e.endDate) {
 			e.endDateYear = e.endDate.substr(0,4);

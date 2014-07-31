@@ -34,7 +34,12 @@ function render(resumeObject) {
                         d: 'mm'
                     });
 	}
+	resumeObject.profiles = {};
 
+	_.each(resumeObject.basics.profiles, function(profile){
+    	resumeObject.profiles[profile.network] = profile.username;
+	});
+	console.log(resumeObject.profiles);
 	var theme = fs.readFileSync(__dirname + '/resume.template', 'utf8');
 	var resumeHTML = Mustache.render(theme, resumeObject);
 	

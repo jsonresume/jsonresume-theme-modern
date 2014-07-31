@@ -7,20 +7,6 @@
     <title>{{basics.firstName}} {{basics.lastName}}</title>
     <link href="http://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet" />
    <style>
-		section header h3 {
-		  margin: 0;
-		}
-		section > div {
-		  border-left: 1px solid #efefef;
-		}
-		section {
-		  min-height: 100px;
-		  margin-bottom: 30px;
-		}
-		section div > h3 {
-		  padding: 0;
-		  margin: 0;
-		}
     </style>
 
   
@@ -30,12 +16,12 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
         <h1>{{basics.name}}<h1>
 
         <h2>{{basics.location.city}}</h2>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
         <img class="media-object img-circle pull-right" data-src="holder.js/64x64" alt="64x64" src="{{basics.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
 
         </div>
@@ -53,6 +39,13 @@
         {{#basics.email}}
         <strong>Email:</strong> {{basics.email}}<br />
         {{/basics.email}}
+        {{#profiles.twitter}}
+        <strong>Twitter:</strong> <a href="http://twitter.com/{{.}}">{{.}}</a><br />
+        {{/profiles.twitter}}
+        {{#profiles.github}}
+        <strong>Github:</strong> <a href="http://github.com/{{.}}">{{.}}</a><br />
+
+        {{/profiles.github}}
         </div>
       </section>
       {{#work.length}}

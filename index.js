@@ -27,8 +27,8 @@ function render(resumeObject) {
 			e.endDateYear = 'Present'
 		}
 	});
-	if(resumeObject.bio && resumeObject.bio.email && resumeObject.bio.email.personal) {
-		resumeObject.bio.gravatar = gravatar.url(resumeObject.bio.email.personal, {
+	if(resumeObject.basics && resumeObject.basics.email) {
+		resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email, {
                         s: '100',
                         r: 'pg',
                         d: 'mm'

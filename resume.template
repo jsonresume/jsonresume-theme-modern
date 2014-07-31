@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{bio.firstName}} {{bio.lastName}}</title>
+    <title>{{basics.firstName}} {{basics.lastName}}</title>
     <link href="http://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet" />
    <style>
 		section header h3 {
@@ -31,12 +31,12 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
         <div class="col-md-6">
-        <h1>{{bio.firstName}} {{bio.lastName}}</h1>
+        <h1>{{basics.name}}<h1>
 
-        <h2>{{bio.location.city}}</h2>
+        <h2>{{basics.location.city}}</h2>
         </div>
         <div class="col-md-6">
-        <img class="media-object img-circle pull-right" data-src="holder.js/64x64" alt="64x64" src="{{bio.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
+        <img class="media-object img-circle pull-right" data-src="holder.js/64x64" alt="64x64" src="{{basics.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
 
         </div>
         </div>
@@ -46,19 +46,13 @@
           <h3>About</h3>
         </header>
         <div class="col-md-9">
-        <p>{{bio.summary}}</p>
-        {{#bio.phone.personal}}
-        <strong>Phone:</strong> {{bio.phone.personal}} <br />
-        {{/bio.phone.personal}}
-        {{#bio.email.personal}}
-        <strong>Email:</strong> {{bio.email.personal}}<br />
-        {{/bio.email.personal}}
-        {{#bio.profiles.twitter}}
-        <strong>Twitter:</strong> <a href="https://twitter.com/{{bio.profiles.twitter}}">@{{bio.profiles.twitter}}</a><br />
-        {{/bio.profiles.twitter}}
-        {{#bio.profiles.github}}
-        <strong>Github:</strong> <a href="https://github.com/{{bio.profiles.github}}">{{bio.profiles.github}}</a><br />
-        {{/bio.profiles.github}}
+        <p>{{basics.summary}}</p>
+        {{#basics.phone}}
+        <strong>Phone:</strong> {{basics.phone}} <br />
+        {{/basics.phone}}
+        {{#basics.email}}
+        <strong>Email:</strong> {{basics.email}}<br />
+        {{/basics.email}}
         </div>
       </section>
       {{#work.length}}

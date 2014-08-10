@@ -1,6 +1,7 @@
 {
     "basics": {
-        "name": "Thomas Davis",
+        "firstName": "Thomas",
+        "lastName": "Davis",
         "label": "Web Developer",
         "summary": "Hey guys, I’m a full stack web developer who loves working with open source technology. These days I do politics with EFF and Taskforce.is, I promote independent artist at Earbits, speed up the web with cdnjs.com and building Skynet with DroneHire.org.",
         "email": "thomasalwyndavis@gmail.com",

@@ -28,7 +28,7 @@ function render(resumeObject) {
 		}
 	});
 	if(resumeObject.basics && resumeObject.basics.email) {
-		resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email.replace('(at)','@'), {
+		resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email, {
                         s: '100',
                         r: 'pg',
                         d: 'mm'

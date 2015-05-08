@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{basics.firstName}} {{basics.lastName}}</title>
     <link href="http://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet" />
-   <style>
+    <style>
     </style>
-
-  
   </head>
   <body>
     <div class="container">
@@ -17,7 +15,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
         <div class="col-md-6 col-sm-12">
-        <h1>{{basics.name}}<h1>
+        <h1>{{basics.name}}</h1>
 
         <h2>{{basics.location.city}}</h2>
         </div>
@@ -34,7 +32,7 @@
         <div class="col-md-9">
         <p>{{basics.summary}}</p>
         {{#basics.phone}}
-        <strong>Phone:</strong> {{basics.phone}} <br />
+        <strong>Phone:</strong> {{basics.phone}}<br />
         {{/basics.phone}}
         {{#basics.email}}
         <strong>Email:</strong> {{basics.email}}<br />

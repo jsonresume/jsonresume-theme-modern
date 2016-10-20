@@ -51,7 +51,9 @@ section div > h3 {
           <h3>About</h3>
         </header>
         <div class="col-md-9">
+        {{#bio.summary}}
         <p>{{bio.summary}}</p>
+        {{/bio.summary}}
         {{#bio.phone.personal}}
         <strong>Phone:</strong> {{bio.phone.personal}} <br />
         {{/bio.phone.personal}}

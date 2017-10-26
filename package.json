@@ -18,8 +18,8 @@
   "homepage": "https://github.com/jsonresume/jsonresume-theme-modern",
   "dependencies": {
     "gravatar": "^1.0.6",
-    "lodash": "^2.4.1",
-    "mustache": "^0.8.2",
-    "tarball-extract": "0.0.3"
+    "lodash": "^4.17.4",
+    "mustache": "^2.3.0",
+    "tarball-extract": "0.0.6"
   }
 }

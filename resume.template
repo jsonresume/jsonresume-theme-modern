@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{basics.firstName}} {{basics.lastName}}</title>
-    <link href="https://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://bootswatch.com/4/lumen/bootstrap.min.css" rel="stylesheet" />
    <style>
     </style>
 
@@ -22,7 +22,7 @@
         <h2>{{basics.location.city}}</h2>
         </div>
         <div class="col-md-6 col-sm-12">
-        <img class="media-object img-circle pull-right" data-src="holder.js/64x64" alt="64x64" src="{{basics.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
+        <img class="media-object img-circle pull-right" data-src="holder.js/64x64" src="https{{basics.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
 
         </div>
         </div>

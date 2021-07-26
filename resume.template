@@ -35,7 +35,9 @@
             <h3>About</h3>
           </header>
           <div class="col-md-9">
+            {{#if basics.summary}}
             <p>{{basics.summary}}</p>
+            {{/if}}
             {{#if basics.phone}}
             <strong>Phone:</strong>
             <a href="tel:{{basics.phone}}">{{basics.phone}}</a><br/>

@@ -1,25 +1,29 @@
 {
   "name": "jsonresume-theme-modern",
-  "version": "0.0.18",
-  "description": "jsonresume-theme-modern =======================",
+  "version": "0.1.0",
+  "description": "Theme for JSON Resume.",
+  "author": "Thomas Davis",
+  "license": "MIT",
+  "homepage": "https://github.com/jsonresume/jsonresume-theme-modern",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jsonresume/jsonresume-theme-modern.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jsonresume/jsonresume-theme-modern/issues"
   },
-  "homepage": "https://github.com/jsonresume/jsonresume-theme-modern",
+  "scripts": {
+    "build:pdf": "resume export --theme . resume.pdf",
+    "build:html": "resume export --theme . resume.html"
+  },
   "dependencies": {
-    "gravatar": "^1.0.6",
-    "lodash": "^2.4.1",
-    "mustache": "^0.8.2",
-    "tarball-extract": "0.0.3"
+    "gravatar": "^1.8.1",
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
+    "tarball-extract": "^0.0.6"
+  },
+  "devDependencies": {
+    "resume-cli": "^3.0.5"
   }
 }

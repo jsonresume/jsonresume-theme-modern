@@ -1,51 +1,41 @@
-var fs = require('fs');
-var gravatar = require('gravatar');
-var _ = require('lodash')
-var Mustache = require('mustache');
+const fs = require('fs');
+const gravatar = require('gravatar');
+const _ = require('lodash');
+const Handlebars = require("handlebars");
 
-function render(resumeObject) {
-
-
-	_.each(resumeObject.work, function(w){
-		w.startDateYear = w.startDate.substr(0,4);
-		if(w.endDate) {
-			w.endDateYear = w.endDate.substr(0,4);
-		} else { 
-			w.endDateYear = 'Present'
-		}
+function render(resume) {
+	_.each(resume.work, (work) => {
+		work.startDateYear = work.startDate.substr(0, 4);
+    work.endDateYear = (work.endDate) ? work.endDate.substr(0,4) : 'Present';
 	});
-	_.each(resumeObject.education, function(e){
-    if( !e.area || !e.studyType ){
-      e.educationDetail = (e.area == null ? '' : e.area) + (e.studyType == null ? '' : e.studyType);
-    }  else {
-      e.educationDetail = e.area + ", "+ e.studyType;
-    }
-		e.startDateYear = e.startDate.substr(0,4);
-		if(e.endDate) {
-			e.endDateYear = e.endDate.substr(0,4);
-		}  else { 
-			e.endDateYear = 'Present'
-		}
+
+	_.each(resume.education, (education) => {
+    if (!education.area || !education.studyType)
+      education.educationDetail = (education.area == null ? '' : education.area) + (education.studyType == null ? '' : education.studyType);
+    else
+      education.educationDetail = education.area + ", " + education.studyType;
+
+    education.startDateYear = education.startDate.substr(0, 4);
+    education.endDateYear = (education.endDate) ? education.endDate.substr(0, 4) : 'Present';
 	});
-	if(resumeObject.basics && resumeObject.basics.email) {
-		resumeObject.basics.gravatar = gravatar.url(resumeObject.basics.email, {
-                        s: '100',
-                        r: 'pg',
-                        d: 'mm'
-                    });
+
+	if (resume.basics.image === undefined && resume.basics?.email) {
+    const gravatarOptions = {
+      default: 'mm',
+      protocol: 'https',
+      rating: 'pg',
+      size: '100',
+    };
+
+		resume.basics.image = gravatar.url(resume.basics.email, gravatarOptions, true);
 	}
-	resumeObject.profiles = {};
 
-	_.each(resumeObject.basics.profiles, function(profile){
-    	resumeObject.profiles[profile.network] = profile.username;
-	});
-	console.log(resumeObject.profiles);
-	var theme = fs.readFileSync(__dirname + '/resume.template', 'utf8');
-	var resumeHTML = Mustache.render(theme, resumeObject);
-	
+	const template = fs.readFileSync(__dirname + '/resume.template', 'utf8');
+	return Handlebars.compile(template)({
+    resume
+  });
+}
 
-	return resumeHTML;
-};
 module.exports = {
-	render: render
+	render
 }

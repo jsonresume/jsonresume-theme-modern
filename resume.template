@@ -1,147 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{basics.firstName}} {{basics.lastName}}</title>
-    <link href="https://bootswatch.com/lumen/bootstrap.min.css" rel="stylesheet" />
-   <style>
-    </style>
-
-  
-  </head>
-  <body>
-    <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="row">
-        <div class="col-md-6 col-sm-12">
-        <h1>{{basics.name}}<h1>
-
-        <h2>{{basics.location.city}}</h2>
+{{#resume}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {{#if basics.name}}
+    {{basics.name}}
+    {{else}}
+    {{basics.firstName}} {{basics.lastName}}
+    {{/if}}
+  </title>
+  <link href="https://bootswatch.com/5/lumen/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <h1>
+              {{#if basics.name}}
+              {{basics.name}}
+              {{else}}
+              {{basics.firstName}} {{basics.lastName}}
+              {{/if}}
+            </h1>
+            <h2>{{basics.location.city}}</h2>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <img class="rounded-circle float-end"
+              src="{{basics.image}}" alt="Avatar"
+              width="100" height="100" style="margin-top: 20px;">
+          </div>
         </div>
-        <div class="col-md-6 col-sm-12">
-        <img class="media-object img-circle pull-right" data-src="holder.js/64x64" alt="64x64" src="{{basics.gravatar}}" style="width: 100px; height: 100px; margin-top: 20px;">
-
-        </div>
-        </div>
-      <hr style="color: #ccc; height: 4px;" />
-      <section class="row">
-        <header class="col-md-3">
-          <h3>About</h3>
-        </header>
-        <div class="col-md-9">
-        <p>{{basics.summary}}</p>
-        {{#basics.phone}}
-        <strong>Phone:</strong> {{basics.phone}} <br />
-        {{/basics.phone}}
-        {{#basics.email}}
-        <strong>Email:</strong> {{basics.email}}<br />
-        {{/basics.email}}
-        {{#profiles.twitter}}
-        <strong>Twitter:</strong> <a href="http://twitter.com/{{.}}">{{.}}</a><br />
-        {{/profiles.twitter}}
-        {{#profiles.github}}
-        <strong>Github:</strong> <a href="http://github.com/{{.}}">{{.}}</a><br />
-
-        {{/profiles.github}}
-        </div>
-      </section>
-      {{#work.length}}
-      <section class="row">
-        <header class="col-md-3">
-          <h3>Work Experience</h3>
-        </header>
-        <div class="col-md-9">
-          <div class="skills">
-            {{#work}}
-            <h3>{{company}}</h3>
+        <hr style="color: #ccc; height: 4px;"/>
+        <section class="row">
+          <header class="col-md-3">
+            <h3>About</h3>
+          </header>
+          <div class="col-md-9">
+            {{#if basics.summary}}
+            <p>{{basics.summary}}</p>
+            {{/if}}
+            {{#if basics.phone}}
+            <strong>Phone:</strong>
+            <a href="tel:{{basics.phone}}">{{basics.phone}}</a><br/>
+            {{/if}}
+            {{#if basics.email}}
+            <strong>Email:</strong>
+            <a href="mailto:{{basics.email}}">{{basics.email}}</a><br/>
+            {{/if}}
+            {{#each basics.profiles}}
+            <strong>{{network}}:</strong>
+            <a href="{{url}}">{{username}}</a><br/>
+            {{/each}}
+          </div>
+        </section>
+        {{#if work}}
+        <section class="row">
+          <header class="col-md-3">
+            <h3>Work Experience</h3>
+          </header>
+          <div class="col-md-9">
+            {{#each work}}
+            <h3>
+            {{#if name}}
+              {{name}}
+            {{else}}
+              {{company}}
+            {{/if}}
+            </h3>
             <strong>{{position}}</strong>
             <p>{{startDateYear}} - {{endDateYear}}</p>
             <p>{{summary}}</p>
+            {{#if highlights}}
             <ul>
-              {{#highlights}}
-              <li>{{.}}</li>
-              {{/highlights}}
+              {{#each highlights}}
+              <li>{{this}}</li>
+              {{/each}}
             </ul>
-            <hr />{{/work}}
+            {{/if}}
+            <hr/>
+            {{/each}}
           </div>
-        </div>
-      </section>
-      {{/work.length}} 
-
-      {{#education.length}}
-      <section class="row">
-        <header class="col-md-3">
-          <h3>Education</h3>
-        </header>
-        <div class="col-md-9">
-          <div class="skills">
-            {{#education}}
-            <h3>{{institution}}</h3>
-            <h4>{{educationDetail}}</h4>
-            <p>{{startDateYear}} - {{endDateYear}}</p>
-            <p>{{summary}}</p>
-            <ul>
-              {{#highlights}}
-              <li>{{.}}</li>
-              {{/highlights}}
-            </ul>
-            <hr />
-            {{/education}}
+        </section>
+        {{/if}}
+        {{#if education}}
+        <section class="row">
+          <header class="col-md-3">
+            <h3>Education</h3>
+          </header>
+          <div class="col-md-9">
+            <div class="skills">
+              {{#each education}}
+              <h3>{{institution}}</h3>
+              <h4>{{educationDetail}}</h4>
+              <p>{{startDateYear}} - {{endDateYear}}</p>
+              <p>{{summary}}</p>
+              {{#if highlights}}
+              <ul>
+                {{#each highlights}}
+                <li>{{this}}</li>
+                {{/each}}
+              </ul>
+              {{/if}}
+              <hr/>
+              {{/each}}
+            </div>
           </div>
-        </div>
-      </section>
-      {{/education.length}} 
-      {{#skills.length}}
-      <section class="row">
-        <header class="col-md-3">
-          <h3>Skills</h3>
-        </header>
-        <div class="col-md-9">
-          <div class="row-fluid skills">
-            {{#skills}}
-            <ul class="col-md-6">
-
-              <li>
-                <h4>{{name}}</h4>
-                <ul>
-                  {{#keywords}}
-                  <li>{{.}}</li>
-                  {{/keywords}}
-                </ul>
-              </li>
-            </ul>
-            {{/skills}}
+        </section>
+        {{/if}}
+        {{#if skills}}
+        <section class="row">
+          <header class="col-md-3">
+            <h3>Skills</h3>
+          </header>
+          <div class="col-md-9">
+            <div class="row-fluid skills">
+              {{#each skills}}
+              <ul class="col-md-12">
+                <li>
+                  <h4>{{name}}</h4>
+                  {{#if keywords}}
+                  <ul>
+                    {{#each keywords}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                  </ul>
+                  {{/if}}
+                </li>
+              </ul>
+              {{/each}}
+            </div>
           </div>
-        </div>
-      </section>
-      {{/skills.length}}
-      {{#references.length}}
-      <section class="row">
-        <header class="col-md-3">
-          <h3>References</h3>
-        </header>
-        <div class="col-md-9">
-          <div class="row-fluid skills">
-            {{#references}}
-
-            <p>{{reference}} -
-              <strong>{{name}}</strong>
-            </p>
-            {{/references}}
+        </section>
+        {{/if}}
+        {{#if references}}
+        <section class="row">
+          <header class="col-md-3">
+            <h3>References</h3>
+          </header>
+          <div class="col-md-9">
+            <div class="row-fluid skills">
+              {{#each references}}
+              <p>{{reference}} - <strong>{{name}}</strong></p>
+              {{/each}}
+            </div>
           </div>
-        </div>
-      </section>
-      {{/references.length}}
-
+        </section>
+        {{/if}}
+      </div>
     </div>
   </div>
-</div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+{{/resume}}
 </html>

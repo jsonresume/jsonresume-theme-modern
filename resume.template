@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-  {{#if basics.name}}
+    {{#if basics.name}}
     {{basics.name}}
-  {{else}}
+    {{else}}
     {{basics.firstName}} {{basics.lastName}}
-  {{/if}}
+    {{/if}}
   </title>
   <link href="https://bootswatch.com/5/lumen/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -20,7 +20,13 @@
       <div class="col-md-8 offset-2">
         <div class="row">
           <div class="col-md-6 col-sm-12">
-            <h1>{{basics.name}}</h1>
+            <h1>
+              {{#if basics.name}}
+              {{basics.name}}
+              {{else}}
+              {{basics.firstName}} {{basics.lastName}}
+              {{/if}}
+            </h1>
             <h2>{{basics.location.city}}</h2>
           </div>
           <div class="col-md-6 col-sm-12">
